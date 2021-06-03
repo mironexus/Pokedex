@@ -1,16 +1,16 @@
-package com.example.pokedex
+package com.example.pokedex.fragments.favorites
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.pokedex.databinding.FragmentSearchBinding
+import com.example.pokedex.databinding.FragmentFavoritePokemonsBinding
 
 
-class SearchFragment : Fragment() {
+class FavoritePokemonsFragment : Fragment() {
 
-    private var _binding: FragmentSearchBinding? = null
+    private var _binding: FragmentFavoritePokemonsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +23,10 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentFavoritePokemonsBinding.inflate(inflater, container, false)
         val view = binding.root
 
         return view
     }
+
 }
