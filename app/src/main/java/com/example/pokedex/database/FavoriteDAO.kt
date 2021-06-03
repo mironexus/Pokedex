@@ -1,17 +1,22 @@
 package com.example.pokedex.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface FavoriteDAO {
 
-//    @Query("SELECT * FROM favorites ORDER BY timestamp")
-//    suspend fun getAllFavorites()
-//
-//    @Insert
-//    suspend fun insertFavorite()
+    @Query("SELECT * FROM favorites ORDER BY timestamp")
+    suspend fun getFavorites() : List<Favorite>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertFavorite(favorite: Favorite)
+
+    @Query("SELECT EXISTS(SELECT * FROM favorites WHERE response_id = :id)")
+    suspend fun checkIsFavorite(id: Int) : Boolean
+
+    @Query("DELETE FROM favorites WHERE response_id = :id")
+    suspend fun removeFromFavorites(id: Int)
+
 //
 //    @Query("SELECT response_id FROM favorites")
 //    suspend fun getSingleFavorite()
@@ -34,5 +39,29 @@ interface FavoriteDAO {
 //        timestampBeingReplaced: Long,
 //        idReplacer: Int
 //    )
+
+    @Query("SELECT timestamp FROM favorites WHERE response_id = :id")
+    suspend fun getTimestamp(id: Int) : Long
+
+    @Query("UPDATE favorites SET timestamp = :timestamp WHERE response_id = :id")
+    suspend fun reorderFavorites(
+        id: Int,
+        timestamp: Long
+    )
+
+    @Transaction
+    suspend fun reorderFavoritesTransaction(idBeingReplaced: Int, idReplacer: Int) {
+
+        val timestampOfBeingReplaced = getTimestamp(idBeingReplaced)
+        val timestampOfReplacer = getTimestamp(idReplacer)
+
+
+        // change timestamp of item that is being dropped on
+        reorderFavorites(idBeingReplaced, timestampOfReplacer)
+
+        // change timestamp of item that is being moved
+        reorderFavorites(idReplacer, timestampOfBeingReplaced)
+
+    }
 
 }

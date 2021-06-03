@@ -26,5 +26,6 @@ data class PokemonResponse(
     var id: Int,
     var name: String,
     var order: Int,
-    var weight: Int
+    var weight: Int,
+    var isFavorite: Boolean
 )

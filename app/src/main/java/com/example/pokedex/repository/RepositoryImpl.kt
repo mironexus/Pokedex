@@ -6,10 +6,10 @@ import com.example.pokedex.PaginatedResponse
 import com.example.pokedex.PokemonResponse
 import com.example.pokedex.ShortPokemonObject
 import com.example.pokedex.database.AppDatabase
+import com.example.pokedex.database.Favorite
 import com.example.pokedex.database.FavoriteDAO
 import com.example.pokedex.network.RetrofitInstance
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.*
 import retrofit2.Response
 import retrofit2.http.Query
 
@@ -21,6 +21,8 @@ class RepositoryImpl(application: Application) {
     init {
         favoriteDAO = database.favoriteDAO
     }
+
+    // networking
 
     suspend fun getFirstPokemonsFromNetwork(limit: Int, offset: Int): PaginatedResponse {
 
@@ -51,13 +53,52 @@ class RepositoryImpl(application: Application) {
 
         val singlePokemonResponse = RetrofitInstance.api.getSinglePokemon(url)
 
-        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0)
+        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false)
 
         if (singlePokemonResponse.isSuccessful) singlePokemonResponseBody = singlePokemonResponse.body()!! else Log.e("RETROFIT_ERROR", singlePokemonResponse.code().toString())
 
         return singlePokemonResponseBody
 
     }
+
+    suspend fun getSinglePokemonFromNetworkWithId(id: Int): PokemonResponse {
+
+        val singlePokemonResponse = RetrofitInstance.api.getSinglePokemonWithId(id)
+
+        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false)
+
+        if (singlePokemonResponse.isSuccessful) singlePokemonResponseBody = singlePokemonResponse.body()!! else Log.e("RETROFIT_ERROR", singlePokemonResponse.code().toString())
+
+        return singlePokemonResponseBody
+
+    }
+
+    // end networking
+
+
+    // database
+    suspend fun addToFavorites(id: Int) {
+        val favorite = Favorite(id, System.currentTimeMillis())
+        favoriteDAO.insertFavorite(favorite)
+    }
+
+    suspend fun removeFromFavorites(id: Int) {
+        favoriteDAO.removeFromFavorites(id)
+    }
+
+    suspend fun checkIsFavorite(id: Int): Boolean {
+        return favoriteDAO.checkIsFavorite(id)
+    }
+
+    suspend fun getFavoritesFromDatabase(): List<Favorite> {
+        return favoriteDAO.getFavorites()
+    }
+
+    suspend fun reorderFavoritesTransaction(idBeingReplaced: Int, idReplacer: Int) {
+        favoriteDAO.reorderFavoritesTransaction(idBeingReplaced, idReplacer)
+    }
+
+    // end database
 
 
 }

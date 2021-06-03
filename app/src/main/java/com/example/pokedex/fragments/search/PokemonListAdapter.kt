@@ -12,7 +12,8 @@ import coil.load
 import com.example.pokedex.PokemonResponse
 import com.example.pokedex.R
 
-class PokemonListAdapter (): PagedListAdapter<PokemonResponse, PokemonListAdapter.PokemonCardViewHolder>(
+
+class PokemonListAdapter (val addToFavorites: (Int) -> Unit, val removeFromFavorites: (Int) -> Unit): PagedListAdapter<PokemonResponse, PokemonListAdapter.PokemonCardViewHolder>(
     DiffUtilCallBack
 ) {
 
@@ -43,12 +44,29 @@ class PokemonListAdapter (): PagedListAdapter<PokemonResponse, PokemonListAdapte
 
         fun bind(data: PokemonResponse) {
             name.text = data.name.capitalize()
-            number.text = data.order.toString()
+            number.text = data.id.toString()
             pokemonImage.load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png")
+
+
+            if (data.isFavorite) setFavorite.setImageResource(R.drawable.ic_star_1) else setFavorite.setImageResource(R.drawable.ic_star_0)
+
+            setFavorite.setOnClickListener {
+                if (!data.isFavorite) {
+                    data.isFavorite = true
+                    setFavorite.setImageResource(R.drawable.ic_star_1)
+                    addToFavorites(data.id)
+                }
+                else {
+                    data.isFavorite = false
+                    setFavorite.setImageResource(R.drawable.ic_star_0)
+                    removeFromFavorites(data.id)
+                }
+            }
+
         }
 
         override fun onClick(v: View?) {
-
+            TODO("Not yet implemented")
         }
 
     }

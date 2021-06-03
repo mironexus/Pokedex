@@ -15,9 +15,13 @@ class PokemonSearchFragment : Fragment() {
     private var _binding: FragmentPokemonSearchBinding? = null
     private val binding get() = _binding!!
 
-    private val pokemonListAdapter =
-        PokemonListAdapter()
     private val searchViewModel: SearchViewModel by activityViewModels()
+    private val pokemonListAdapter =
+        PokemonListAdapter(
+            {id -> searchViewModel.addToFavorites(id)},
+            {id -> searchViewModel.removeFromFavorites(id)}
+        )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -12,6 +12,8 @@ import com.example.pokedex.PokemonResponse
 import com.example.pokedex.database.FavoriteDAO
 import com.example.pokedex.fragments.search.PokemonListDataSource
 import com.example.pokedex.repository.RepositoryImpl
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class SearchViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -46,6 +48,29 @@ class SearchViewModel(application: Application) : AndroidViewModel(application) 
 
     // other functionality
 
+    fun addToFavorites(id: Int) {
+        viewModelScope.launch {
+            repository.addToFavorites(id)
+        }
+    }
+
+    fun removeFromFavorites(id: Int) {
+        viewModelScope.launch {
+            repository.removeFromFavorites(id)
+        }
+    }
+
+    suspend fun checkIsFavorite(id: Int): Boolean {
+
+        var isFavorite = false
+
+        val waitForCheck = viewModelScope.async {
+            isFavorite = repository.checkIsFavorite(id)
+        }
+        waitForCheck.await()
+
+        return isFavorite
+    }
 
 
 }
