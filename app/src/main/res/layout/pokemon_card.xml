@@ -24,6 +24,7 @@
             android:padding="16dp"
             android:layout_gravity="center"
             android:id="@+id/inner_container"
+            android:background="@color/surface1"
             >
 
             <ImageView

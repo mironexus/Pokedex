@@ -3,11 +3,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.settings.SettingsFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment settings" />
+        android:background="@color/surface1"
+        >
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="8dp"
+        android:background="@color/tintPrimary">
+
+
+            <TextView
+                android:id="@+id/settings_title"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:text="@string/settings"
+                android:textColor="@color/surface1"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="8dp"
+                />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="@string/settings_language"
+            android:textColorHint="@color/tintSecondary"
+            android:background="@drawable/language_picker_rounded"
+
+            android:layout_margin="16dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/languageMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/about_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/language_picker_rounded"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
+            >
+
+            <TextView
+                android:id="@+id/settings_about"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_about"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/dark"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/settings_about_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_about_text"
+                android:textSize="14sp"
+                android:textColor="@color/dark"
+                app:layout_constraintTop_toBottomOf="@id/settings_about"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_more_info"
+                android:textSize="14sp"
+                android:textColor="@color/tintSecondary"
+                app:layout_constraintTop_toBottomOf="@id/settings_about_text"
+                app:layout_constraintStart_toStartOf="parent"
+                android:paddingVertical="8dp"
+                android:layout_marginTop="8dp"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/clear_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_clear"
+            android:textSize="14sp"
+            android:textColor="@color/error"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/about_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingVertical="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/clear_button_border"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

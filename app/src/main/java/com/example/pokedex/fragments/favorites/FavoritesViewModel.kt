@@ -51,6 +51,11 @@ class FavoritesViewModel(application: Application): AndroidViewModel(application
         }
     }
 
+    fun deleteAllFavorites() {
+        viewModelScope.launch {
+            repository.deleteAllFavorites()
+        }
+    }
 
 
 

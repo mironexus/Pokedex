@@ -1,6 +1,6 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/tintPrimary</item>
 
@@ -9,6 +9,21 @@
         <item name="android:windowBackground">@color/surface0</item>
 
         <item name="android:textColorPrimary">@color/dark</item>
+
+        <item name="colorPrimaryVariant">@color/tintPrimary</item>
+        <item name="colorSecondaryVariant">@color/tintSecondary</item>
+        <item name="colorSurface">@color/surface0</item>
+
+<!--        <item name="colorOnPrimary">@color/surface0</item>-->
+<!--        <item name="colorOnSecondary">@color/surface0</item>-->
+<!--        <item name="colorOnBackground">@color/surface0</item>-->
+<!--        <item name="colorOnError">@color/surface0</item>-->
+<!--        <item name="colorOnSurface">@color/surface0</item>-->
+<!--        <item name="scrimBackground">@color/surface0</item>-->
+
+
+
+
     </style>
 
 </resources>

@@ -98,6 +98,10 @@ class RepositoryImpl(application: Application) {
         favoriteDAO.reorderFavoritesTransaction(idBeingReplaced, idReplacer)
     }
 
+    suspend fun deleteAllFavorites() {
+        favoriteDAO.deleteAllFavorites()
+    }
+
     // end database
 
 

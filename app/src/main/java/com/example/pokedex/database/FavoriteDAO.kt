@@ -21,8 +21,7 @@ interface FavoriteDAO {
 //    @Query("SELECT response_id FROM favorites")
 //    suspend fun getSingleFavorite()
 //
-//    @Query("DELETE FROM favorites")
-//    suspend fun deleteAllFavorites()
+
 //
 //    @Query("SELECT EXISTS(SELECT * FROM favorites WHERE response_id = :responseId)")
 //    suspend fun checkIfFavorite(responseId: Int) : Boolean
@@ -63,5 +62,8 @@ interface FavoriteDAO {
         reorderFavorites(idReplacer, timestampOfBeingReplaced)
 
     }
+
+    @Query("DELETE FROM favorites")
+    suspend fun deleteAllFavorites()
 
 }
