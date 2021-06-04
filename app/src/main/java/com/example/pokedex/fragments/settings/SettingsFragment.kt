@@ -1,5 +1,6 @@
 package com.example.pokedex.fragments.settings
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,6 +31,13 @@ class SettingsFragment : Fragment() {
         val items = listOf("English", "German", "French", "Croatian")
         val adapter = ArrayAdapter(requireContext(), R.layout.language_menu_item, items)
         binding.languageMenu.setAdapter(adapter)
+
+
+        binding.settingsMoreInfo.setOnClickListener {
+            val intent = Intent(context, AboutActivity::class.java)
+            context?.startActivity(intent)
+        }
+
 
         binding.clearButton.setOnClickListener{
 

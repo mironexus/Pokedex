@@ -10,4 +10,13 @@
     <string name="settings_about_text">Vestibulum rutrum quam vitae fringilla tincidunt. Suspendisse nec tortor urna. Ut laoreet sodales nisi, quis iaculis nulla iaculis.</string>
     <string name="settings_more_info">MORE INFO</string>
     <string name="settings_clear">CLEAR MY FAVORITES LIST</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="about_activity_subtitle">SofaScore Android Academy</string>
+    <string name="about_activity_class">Class 2021</string>
+    <string name="about_activity_app_name_label">App Name</string>
+    <string name="about_activity_app_name">Pokedex</string>
+    <string name="about_activity_api_credit_label">API Credit</string>
+    <string name="about_activity_api_credit">PokeApi</string>
+    <string name="about_activity_developer_label">Developer</string>
+    <string name="about_activity_developer">Miro Šarić</string>
 </resources>
