@@ -9,17 +9,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokedex.databinding.FragmentPokemonSearchBinding
+import com.example.pokedex.fragments.SharedViewModel
 
 class PokemonSearchFragment : Fragment() {
 
     private var _binding: FragmentPokemonSearchBinding? = null
     private val binding get() = _binding!!
 
-    private val searchViewModel: SearchViewModel by activityViewModels()
+    private val searchViewModel: SharedViewModel by activityViewModels()
     private val pokemonListAdapter =
         PokemonListAdapter(
             {id -> searchViewModel.addToFavorites(id)},
-            {id -> searchViewModel.removeFromFavorites(id)}
+            {id -> searchViewModel.removeFromFavoritesFromSearch(id)}
         )
 
 

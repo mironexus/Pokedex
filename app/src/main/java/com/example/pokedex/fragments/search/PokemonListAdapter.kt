@@ -13,7 +13,7 @@ import com.example.pokedex.PokemonResponse
 import com.example.pokedex.R
 
 
-class PokemonListAdapter (val addToFavorites: (Int) -> Unit, val removeFromFavorites: (Int) -> Unit): PagedListAdapter<PokemonResponse, PokemonListAdapter.PokemonCardViewHolder>(
+class PokemonListAdapter (val addToFavorites: (Int) -> Unit, val removeFromFavoritesFromSearch: (Int) -> Unit): PagedListAdapter<PokemonResponse, PokemonListAdapter.PokemonCardViewHolder>(
     DiffUtilCallBack
 ) {
 
@@ -59,7 +59,7 @@ class PokemonListAdapter (val addToFavorites: (Int) -> Unit, val removeFromFavor
                 else {
                     data.isFavorite = false
                     setFavorite.setImageResource(R.drawable.ic_star_0)
-                    removeFromFavorites(data.id)
+                    removeFromFavoritesFromSearch(data.id)
                 }
             }
 

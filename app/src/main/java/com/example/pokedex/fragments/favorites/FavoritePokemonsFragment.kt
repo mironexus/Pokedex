@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedex.R
 import com.example.pokedex.databinding.FragmentFavoritePokemonsBinding
+import com.example.pokedex.fragments.SharedViewModel
 
 
 class FavoritePokemonsFragment : Fragment(), FavoritesListAdapter.OnStartDragListener {
@@ -21,7 +22,7 @@ class FavoritePokemonsFragment : Fragment(), FavoritesListAdapter.OnStartDragLis
 
 
     private var mItemTouchHelper: ItemTouchHelper? = null
-    private val favoritesViewModel: FavoritesViewModel by activityViewModels()
+    private val favoritesViewModel: SharedViewModel by activityViewModels()
     var editMode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {

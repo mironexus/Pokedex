@@ -24,6 +24,8 @@ class PokemonListDataSource(private val scope: CoroutineScope, private val repos
 
         scope.launch {
 
+            val favoritesList = repositoryInstance.getFavoritesFromDatabase()
+
             val paginatedResponseBody = repositoryInstance.getFirstPokemonsFromNetwork(LIMIT, INITIAL_OFFSET)
 
             val asyncTasks = paginatedResponseBody.results.map {
@@ -31,6 +33,11 @@ class PokemonListDataSource(private val scope: CoroutineScope, private val repos
             }
 
             val pokemonList: MutableList<PokemonResponse> = asyncTasks.awaitAll().toMutableList()
+
+            // check if pokemon is in favorites
+            pokemonList.forEach() {
+                for(fav in favoritesList) if(it.id == fav.response_id) it.isFavorite = true
+            }
 
             callback.onResult(pokemonList, paginatedResponseBody.previous, paginatedResponseBody.next)
 
@@ -45,6 +52,8 @@ class PokemonListDataSource(private val scope: CoroutineScope, private val repos
     ) {
         scope.launch {
 
+            val favoritesList = repositoryInstance.getFavoritesFromDatabase()
+
             val paginatedResponseBody = repositoryInstance.getNextPokemonsFromNetwork(params.key)
 
             val asyncTasks = paginatedResponseBody.results.map {
@@ -52,6 +61,11 @@ class PokemonListDataSource(private val scope: CoroutineScope, private val repos
             }
 
             val pokemonList: MutableList<PokemonResponse> = asyncTasks.awaitAll().toMutableList()
+
+            // check if pokemon is in favorites
+            pokemonList.forEach() {
+                for(fav in favoritesList) if(it.id == fav.response_id) it.isFavorite = true
+            }
 
             callback.onResult(pokemonList, paginatedResponseBody.next)
 

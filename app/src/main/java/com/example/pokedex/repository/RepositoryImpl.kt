@@ -61,6 +61,7 @@ class RepositoryImpl(application: Application) {
 
     }
 
+    // for favorites
     suspend fun getSinglePokemonFromNetworkWithId(id: Int): PokemonResponse {
 
         val singlePokemonResponse = RetrofitInstance.api.getSinglePokemonWithId(id)

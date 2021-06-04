@@ -10,15 +10,14 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import com.example.pokedex.R
 import com.example.pokedex.databinding.FragmentSettingsBinding
-import com.example.pokedex.fragments.favorites.FavoritesViewModel
+import com.example.pokedex.fragments.SharedViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
 
-    private val favoritesViewModel: FavoritesViewModel by activityViewModels()
+    private val favoritesViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
