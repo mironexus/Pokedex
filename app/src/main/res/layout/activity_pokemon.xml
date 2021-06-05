@@ -276,7 +276,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:text="Abilities"
+                        android:text="@string/abilities_label"
                         android:textStyle="bold"
                         />
 
@@ -303,7 +303,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="16dp"
                     android:layout_marginHorizontal="8dp"
-                    android:paddingStart="16dp"
+                    android:paddingHorizontal="16dp"
                     android:paddingBottom="24dp"
                     android:background="@drawable/search_rounded_container">
 
@@ -314,58 +314,64 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:text="Stats"
+                        android:text="@string/stats_label"
                         android:textStyle="bold"
 
                         />
 
                     <com.example.pokedex.pokemon.SingleStat
                         android:id="@+id/stats_hp"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/stats_label"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="16dp"
+                        app:label="@string/stat_hp"/>
 
                     <com.example.pokedex.pokemon.SingleStat
                         android:id="@+id/stats_attack"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/stats_hp"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="16dp"
+                        app:label="@string/stat_attack"/>
 
                     <com.example.pokedex.pokemon.SingleStat
                         android:id="@+id/stats_defense"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/stats_attack"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="16dp"
+                        app:label="@string/stat_defense"/>
 
                     <com.example.pokedex.pokemon.SingleStat
                         android:id="@+id/stats_special_attack"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/stats_defense"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="16dp"
+                        app:label="@string/stat_sp_atk"/>
 
                     <com.example.pokedex.pokemon.SingleStat
                         android:id="@+id/stats_special_defense"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/stats_special_attack"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="16dp"
+                        app:label="@string/stat_sp_def"/>
 
                     <com.example.pokedex.pokemon.SingleStat
                         android:id="@+id/stats_speed"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/stats_special_defense"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginTop="16dp"/>
+                        android:layout_marginTop="16dp"
+                        app:label="@string/stat_speed"/>
 
                     <TextView
                         android:id="@+id/stats_total_label"
@@ -373,17 +379,22 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/stats_speed"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:text="Total"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/stat_total"
                         android:textStyle="bold"
+                        android:textColor="@color/coldGray"
                         />
+
                     <TextView
                         android:id="@+id/stats_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@+id/stats_speed"
                         app:layout_constraintStart_toEndOf="@+id/stats_total_label"
+                        android:layout_marginTop="4dp"
                         android:text="010"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:textColor="@color/coldGray"/>
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

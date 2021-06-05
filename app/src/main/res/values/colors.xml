@@ -15,4 +15,15 @@
     <color name="success">#12ca5d</color>
 
     <color name="colorAccent">#03DAC5</color>
+
+
+
+    <color name="stat_color_hp">#f92727</color>
+    <color name="stat_color_att">#f08030</color>
+    <color name="stat_color_def">#e6b800</color>
+    <color name="stat_color_sp_att">#6890f0</color>
+    <color name="stat_color_sp_def">#61c52e</color>
+    <color name="stat_color_spd">#f879dd</color>
+
+
 </resources>

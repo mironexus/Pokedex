@@ -26,4 +26,15 @@
     <string name="pokemon_pokedex_num">POKEDEX NUM</string>
     <string name="pokemon_type">TYPE</string>
     <string name="stat_placeholder">Stat</string>
+
+    <string name="stat_hp">HP:</string>
+    <string name="stat_attack">Attack:</string>
+    <string name="stat_defense">Defense:</string>
+    <string name="stat_sp_atk">Sp. Atk:</string>
+    <string name="stat_sp_def">Sp. Def:</string>
+    <string name="stat_speed">Speed:</string>
+    <string name="stat_total">Total:</string>
+    <string name="abilities_label">Abilities</string>
+    <string name="stats_label">Stats</string>
+
 </resources>

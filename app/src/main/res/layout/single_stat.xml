@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/surface1">
+    android:background="@color/surface1"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
         android:id="@+id/stat_label"
@@ -19,10 +19,10 @@
 
     <TextView
         android:id="@+id/stat_value"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/stat_label"
+        app:layout_constraintStart_toEndOf="@id/stat_label"
         android:text="010"
         android:textSize="14sp"/>
 
@@ -30,15 +30,14 @@
         android:id="@+id/progressBar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/stat_value"
-        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/stat_value"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="230dp"
+        android:layout_width="180dp"
+        android:layout_marginStart="16dp"
         android:layout_height="12dp"
-        android:background="@drawable/language_picker_rounded"
-        android:progressTint="@color/error"
+        android:background="@drawable/progress_bar_background_rounded"
         android:progress="25"
-        android:max="200"
+        android:max="255"
         />
 
 

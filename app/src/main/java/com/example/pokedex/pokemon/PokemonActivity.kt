@@ -42,35 +42,31 @@ class PokemonActivity : AppCompatActivity() {
                 binding.weight.text = it.weight.toString()
                 binding.pokemonImage.load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${it.id}.png")
 
-                binding.statsHp.setStatLabel(it.stats[0].stat.name)
                 binding.statsHp.setStatValue(it.stats[0].base_stat.toString())
                 binding.statsHp.setProgress(it.stats[0].base_stat.toString())
-                binding.statsHp.setColor(R.color.error)
+                binding.statsHp.setColor(R.color.stat_color_hp)
 
-                binding.statsAttack.setStatLabel(it.stats[1].stat.name)
                 binding.statsAttack.setStatValue(it.stats[1].base_stat.toString())
                 binding.statsAttack.setProgress(it.stats[1].base_stat.toString())
-                binding.statsAttack.setColor(R.color.coldGray)
+                binding.statsAttack.setColor(R.color.stat_color_att)
 
-                binding.statsDefense.setStatLabel(it.stats[2].stat.name)
                 binding.statsDefense.setStatValue(it.stats[2].base_stat.toString())
                 binding.statsDefense.setProgress(it.stats[2].base_stat.toString())
-                binding.statsDefense.setColor(R.color.tintSecondary)
+                binding.statsDefense.setColor(R.color.stat_color_def)
 
-                binding.statsSpecialAttack.setStatLabel(it.stats[3].stat.name)
                 binding.statsSpecialAttack.setStatValue(it.stats[3].base_stat.toString())
                 binding.statsSpecialAttack.setProgress(it.stats[3].base_stat.toString())
-                binding.statsSpecialAttack.setColor(R.color.tintPrimary)
+                binding.statsSpecialAttack.setColor(R.color.stat_color_sp_att)
 
-                binding.statsSpecialDefense.setStatLabel(it.stats[4].stat.name)
                 binding.statsSpecialDefense.setStatValue(it.stats[4].base_stat.toString())
                 binding.statsSpecialDefense.setProgress(it.stats[4].base_stat.toString())
-                binding.statsSpecialDefense.setColor(R.color.dark)
+                binding.statsSpecialDefense.setColor(R.color.stat_color_sp_def)
 
-                binding.statsSpeed.setStatLabel(it.stats[5].stat.name)
                 binding.statsSpeed.setStatValue(it.stats[5].base_stat.toString())
                 binding.statsSpeed.setProgress(it.stats[5].base_stat.toString())
-                binding.statsSpeed.setColor(R.color.colorAccent)
+                binding.statsSpeed.setColor(R.color.stat_color_spd)
+
+                binding.statsTotal.text = (it.stats[0].base_stat + it.stats[1].base_stat + it.stats[2].base_stat + it.stats[3].base_stat + it.stats[4].base_stat + it.stats[5].base_stat).toString()
 
             })
 
@@ -85,4 +81,5 @@ class PokemonActivity : AppCompatActivity() {
         return networkCapabilities != null &&
                 networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
+
 }

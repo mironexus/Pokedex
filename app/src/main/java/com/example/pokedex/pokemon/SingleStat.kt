@@ -28,14 +28,14 @@ class SingleStat(context: Context, attrs: AttributeSet) : ConstraintLayout(conte
                 val stat = getString(R.styleable.SingleStat_label)
                 val value = getString(R.styleable.SingleStat_value)
                 val progress = getString(R.styleable.SingleStat_progress)
-                val stat_color = getResourceId(R.styleable.SingleStat_stat_color, 0)
+                val stat_color = getResourceId(R.styleable.SingleStat_stat_color, R.color.stat_color_spd)
 
                 binding.statLabel.text = stat
                 binding.statValue.text = value
                 if (progress != null) {
                     binding.progressBar.progress = progress.toInt()
                 }
-                binding.progressBar.progressDrawable.setTint(stat_color.toInt())
+                binding.progressBar.progressDrawable.setTint(resources.getColor(stat_color))
 
             } finally {
                 recycle()
@@ -55,7 +55,7 @@ class SingleStat(context: Context, attrs: AttributeSet) : ConstraintLayout(conte
             binding.progressBar.progress = value.toInt()
         }
         fun setColor(value: Int) {
-            binding.progressBar.progressDrawable.setTint(value)
+            binding.progressBar.progressDrawable.setTint(resources.getColor(value))
         }
 
 }
