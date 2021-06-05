@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokedex.databinding.FragmentPokemonSearchBinding
 import com.example.pokedex.fragments.SharedViewModel
 
-class PokemonSearchFragment : Fragment() {
+class PokemonSearchFragment : Fragment(), PokemonListAdapter.OnItemClickListener {
 
     private var _binding: FragmentPokemonSearchBinding? = null
     private val binding get() = _binding!!
@@ -23,7 +23,8 @@ class PokemonSearchFragment : Fragment() {
     private val pokemonListAdapter =
         PokemonListAdapter(
             {id -> searchViewModel.addToFavorites(id)},
-            {id -> searchViewModel.removeFromFavoritesFromSearch(id)}
+            {id -> searchViewModel.removeFromFavoritesFromSearch(id)},
+            this
         )
 
     override fun onCreateView(
@@ -76,6 +77,10 @@ class PokemonSearchFragment : Fragment() {
         val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
         return networkCapabilities != null &&
                 networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+    override fun onItemClick(position: Int) {
+
     }
 
 

@@ -21,11 +21,24 @@ data class TypesListObject(
     var slot: Int
 )
 
+data class StatObject(
+    var base_stat: Int,
+    var stat: Stat
+){
+
+}
+
+data class Stat(
+    var name: String,
+    var url: String
+) {}
+
 data class PokemonResponse(
     var height: Int,
     var id: Int,
     var name: String,
     var order: Int,
     var weight: Int,
-    var isFavorite: Boolean
+    var isFavorite: Boolean,
+    var stats: List<StatObject>
 )

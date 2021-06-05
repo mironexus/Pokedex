@@ -1,5 +1,6 @@
 package com.example.pokedex.fragments.search
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.pokedex.PokemonResponse
 import com.example.pokedex.R
+import com.example.pokedex.pokemon.PokemonActivity
 
 
-class PokemonListAdapter (val addToFavorites: (Int) -> Unit, val removeFromFavoritesFromSearch: (Int) -> Unit): PagedListAdapter<PokemonResponse, PokemonListAdapter.PokemonCardViewHolder>(
+class PokemonListAdapter (val addToFavorites: (Int) -> Unit,
+                          val removeFromFavoritesFromSearch: (Int) -> Unit,
+                          private val listener: OnItemClickListener
+): PagedListAdapter<PokemonResponse, PokemonListAdapter.PokemonCardViewHolder>(
     DiffUtilCallBack
 ) {
 
@@ -66,7 +71,16 @@ class PokemonListAdapter (val addToFavorites: (Int) -> Unit, val removeFromFavor
         }
 
         override fun onClick(v: View?) {
-            TODO("Not yet implemented")
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+            if (v != null) {
+                val intent = Intent(v.context, PokemonActivity::class.java)
+                    intent.putExtra("id", getItem(position)?.id)
+                    intent.putExtra("isFavorite", getItem(position)?.isFavorite)
+                v.context.startActivity(intent)
+            }
         }
 
     }

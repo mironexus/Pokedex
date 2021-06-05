@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SingleStat">
+        <attr name="label" format="string"/>
+        <attr name="value" format="string"/>
+        <attr name="progress" format="string"/>
+        <attr name="stat_color" format="reference"/>
+    </declare-styleable>
+</resources>

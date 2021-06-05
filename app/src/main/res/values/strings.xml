@@ -21,4 +21,9 @@
     <string name="about_activity_developer">Miro Šarić</string>
     <string name="no_internet_message">Please check Internet connection.</string>
     <string name="no_favorites_message">Add some favorites to see them!</string>
+    <string name="pokemon_height">HEIGHT</string>
+    <string name="pokemon_weight">WEIGHT</string>
+    <string name="pokemon_pokedex_num">POKEDEX NUM</string>
+    <string name="pokemon_type">TYPE</string>
+    <string name="stat_placeholder">Stat</string>
 </resources>
