@@ -36,5 +36,6 @@
     <string name="stat_total">Total:</string>
     <string name="abilities_label">Abilities</string>
     <string name="stats_label">Stats</string>
+    <string name="hidden_ability">Hidden Ability</string>
 
 </resources>

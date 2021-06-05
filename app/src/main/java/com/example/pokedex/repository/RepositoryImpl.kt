@@ -54,7 +54,7 @@ class RepositoryImpl(application: Application) {
 
         val singlePokemonResponse = RetrofitInstance.api.getSinglePokemon(url)
 
-        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false, listOf())
+        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false, listOf(), listOf())
 
         if (singlePokemonResponse.isSuccessful) singlePokemonResponseBody = singlePokemonResponse.body()!! else Log.e("RETROFIT_ERROR", singlePokemonResponse.code().toString())
 
@@ -67,7 +67,7 @@ class RepositoryImpl(application: Application) {
 
         val singlePokemonResponse = RetrofitInstance.api.getSinglePokemonWithId(id)
 
-        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false, listOf())
+        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false, listOf(), listOf())
 
         if (singlePokemonResponse.isSuccessful) singlePokemonResponseBody = singlePokemonResponse.body()!! else Log.e("RETROFIT_ERROR", singlePokemonResponse.code().toString())
 

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.example.pokedex.R
 import com.example.pokedex.databinding.ActivityPokemonBinding
@@ -36,6 +37,7 @@ class PokemonActivity : AppCompatActivity() {
 
             singlePokemonViewModel.pokemon.observe(this, Observer {
 
+                //region Stats
                 binding.collapsingToolbar.title = it.name
                 binding.pokedexNum.text = it.order.toString()
                 binding.height.text = it.height.toString()
@@ -67,6 +69,19 @@ class PokemonActivity : AppCompatActivity() {
                 binding.statsSpeed.setColor(R.color.stat_color_spd)
 
                 binding.statsTotal.text = (it.stats[0].base_stat + it.stats[1].base_stat + it.stats[2].base_stat + it.stats[3].base_stat + it.stats[4].base_stat + it.stats[5].base_stat).toString()
+                //endregion
+
+
+                //region Abilities
+                val abilitiesAdapter =
+                    AbilitiesAdapter(
+                        it.abilities
+                    )
+                binding.abilitiesRecyclerView.adapter = abilitiesAdapter
+                val layoutManagerAbility = LinearLayoutManager(applicationContext)
+                layoutManagerAbility.orientation = LinearLayoutManager.HORIZONTAL
+                binding.abilitiesRecyclerView.layoutManager = layoutManagerAbility
+                //endregion
 
             })
 
