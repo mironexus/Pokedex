@@ -21,20 +21,24 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     var favoritesList = MutableLiveData<List<PokemonResponse>>()
     private val repository: RepositoryImpl
 
+    // to notify loader to dissapear
+    var isDataLoaded = MutableLiveData<Boolean>()
+
     private val config = PagedList.Config.Builder()
         .setPageSize(20)
         .setEnablePlaceholders(false)
         .build()
 
     init {
-
         pokemonList  = initializedPagedListBuilder(config).build()
         favoritesList.value = listOf()
-
+        isDataLoaded.value = false
         repository = RepositoryImpl(getApplication())
     }
 
-    fun getPokemons() : LiveData<PagedList<PokemonResponse>> = pokemonList
+    fun getPokemons() : LiveData<PagedList<PokemonResponse>> {
+        return pokemonList
+    }
 
     private fun initializedPagedListBuilder(config: PagedList.Config): LivePagedListBuilder<String, PokemonResponse> {
 
@@ -107,3 +111,6 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
 
 }
+
+
+

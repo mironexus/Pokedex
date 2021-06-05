@@ -22,8 +22,9 @@ class RepositoryImpl(application: Application) {
         favoriteDAO = database.favoriteDAO
     }
 
-    // networking
 
+
+    //region Networking
     suspend fun getFirstPokemonsFromNetwork(limit: Int, offset: Int): PaginatedResponse {
 
         val paginatedResponse = RetrofitInstance.api.getPaginatedResponse(limit, offset)
@@ -73,11 +74,10 @@ class RepositoryImpl(application: Application) {
         return singlePokemonResponseBody
 
     }
+    //endregion
 
-    // end networking
 
-
-    // database
+    //region Database
     suspend fun addToFavorites(id: Int) {
         val favorite = Favorite(id, System.currentTimeMillis())
         favoriteDAO.insertFavorite(favorite)
@@ -102,8 +102,7 @@ class RepositoryImpl(application: Application) {
     suspend fun deleteAllFavorites() {
         favoriteDAO.deleteAllFavorites()
     }
-
-    // end database
+    //endregion
 
 
 }

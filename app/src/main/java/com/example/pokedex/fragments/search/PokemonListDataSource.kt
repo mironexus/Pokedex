@@ -5,10 +5,7 @@ import androidx.paging.PageKeyedDataSource
 import com.example.pokedex.PokemonResponse
 import com.example.pokedex.network.RetrofitInstance
 import com.example.pokedex.repository.RepositoryImpl
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class PokemonListDataSource(private val scope: CoroutineScope, private val repositoryInstance: RepositoryImpl): PageKeyedDataSource<String, PokemonResponse>() {
 
@@ -23,6 +20,9 @@ class PokemonListDataSource(private val scope: CoroutineScope, private val repos
     ) {
 
         scope.launch {
+
+            // uncomment if loadingPanel goes out too quickly (maybe)
+            //Thread.sleep(5000)
 
             val favoritesList = repositoryInstance.getFavoritesFromDatabase()
 

@@ -19,4 +19,6 @@
     <string name="about_activity_api_credit">PokeApi</string>
     <string name="about_activity_developer_label">Developer</string>
     <string name="about_activity_developer">Miro Šarić</string>
+    <string name="no_internet_message">Please check Internet connection.</string>
+    <string name="no_favorites_message">Add some favorites to see them!</string>
 </resources>
