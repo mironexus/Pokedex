@@ -1,13 +1,19 @@
 package com.example.pokedex
 
 
+data class Species(
+    var name: String,
+    var url: String
+)
+
+
 data class ShortTypeObject(
     var name: String,
     var url: String
 )
-data class TypesListObject(
-    var ShortTypeObjectList: List<ShortTypeObject>,
-    var slot: Int
+data class Type(
+    var slot: Int,
+    var type: ShortTypeObject
 )
 
 
@@ -41,5 +47,7 @@ data class PokemonResponse(
     var weight: Int,
     var isFavorite: Boolean,
     var stats: List<StatObject>,
-    var abilities: List<AbilityLong>
+    var abilities: List<AbilityLong>,
+    var species: Species,
+    var types: List<Type>
 )

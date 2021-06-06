@@ -5,10 +5,13 @@ import android.util.Log
 import com.example.pokedex.PaginatedResponse
 import com.example.pokedex.PokemonResponse
 import com.example.pokedex.ShortPokemonObject
+import com.example.pokedex.Species
 import com.example.pokedex.database.AppDatabase
 import com.example.pokedex.database.Favorite
 import com.example.pokedex.database.FavoriteDAO
 import com.example.pokedex.network.RetrofitInstance
+import com.example.pokedex.pokemon.EvolutionChainResponse
+import com.example.pokedex.pokemon.SpeciesResponse
 import kotlinx.coroutines.*
 import retrofit2.Response
 import retrofit2.http.Query
@@ -54,7 +57,7 @@ class RepositoryImpl(application: Application) {
 
         val singlePokemonResponse = RetrofitInstance.api.getSinglePokemon(url)
 
-        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false, listOf(), listOf())
+        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false, listOf(), listOf(), Species("", ""), listOf())
 
         if (singlePokemonResponse.isSuccessful) singlePokemonResponseBody = singlePokemonResponse.body()!! else Log.e("RETROFIT_ERROR", singlePokemonResponse.code().toString())
 
@@ -67,7 +70,7 @@ class RepositoryImpl(application: Application) {
 
         val singlePokemonResponse = RetrofitInstance.api.getSinglePokemonWithId(id)
 
-        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false, listOf(), listOf())
+        var singlePokemonResponseBody = PokemonResponse(0, 0, "", 0, 0, false, listOf(), listOf(), Species("", ""), listOf())
 
         if (singlePokemonResponse.isSuccessful) singlePokemonResponseBody = singlePokemonResponse.body()!! else Log.e("RETROFIT_ERROR", singlePokemonResponse.code().toString())
 
@@ -75,6 +78,45 @@ class RepositoryImpl(application: Application) {
 
     }
     //endregion
+
+//    suspend fun getEvolutionChain(url: String) : String {
+//        val speciesResponseFromApi = RetrofitInstance.api.getSpecies(url)
+//
+//        var evolutionChainUrl = ""
+//
+//        if (speciesResponseFromApi.isSuccessful) evolutionChainUrl = speciesResponseFromApi.body()?.evolutionChain.toString() else Log.e("RETROFIT_ERROR", speciesResponseFromApi.code().toString())
+//
+//        return evolutionChainUrl
+//    }
+//
+//    suspend fun getEvolutions(url: String): Array<String> {
+//
+//       val evolutionChainResponseFromApi = RetrofitInstance.api.getEvolutionChain(url)
+//
+//        var firstName = "aaa"
+//        var secondName = "bbb"
+//        var thirdName = "ccc"
+//
+//
+//        var evolutionChain: EvolutionChainResponse
+//        if (evolutionChainResponseFromApi.isSuccessful) {
+//            evolutionChain = evolutionChainResponseFromApi.body()!!
+//
+//            firstName = evolutionChain.chain.species.name
+////            secondName = evolutionChain.chain.evolves_to.species.name
+////            thirdName = evolutionChain.chain.evolves_to.evolves_to.species.name
+//        }
+//        else
+//            Log.e("RETROFIT_ERROR", evolutionChainResponseFromApi.code().toString())
+//
+//
+//
+//        var array = arrayOf(firstName, secondName, thirdName)
+//
+//        return array
+//
+//
+//    }
 
 
     //region Database

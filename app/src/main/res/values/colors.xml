@@ -26,4 +26,29 @@
     <color name="stat_color_spd">#f879dd</color>
 
 
+    <color name="type_bug">#a7b820</color>
+    <color name="type_dark">#6f5848</color>
+    <color name="type_dragon">#7038f8</color>
+    <color name="type_electric">#e7bc1b</color>
+    <color name="type_fairy">#ee99ac</color>
+    <color name="type_fighting">#c03128</color>
+    <color name="type_fire">#ff6f21</color>
+    <color name="type_flying">#a890f0</color>
+    <color name="type_ghost">#705998</color>
+    <color name="type_grass">#2db407</color>
+    <color name="type_ground">#ceb87d</color>
+    <color name="type_ice">#5bc6c6</color>
+    <color name="type_normal">#afad9e</color>
+    <color name="type_poison">#d933d3</color>
+    <color name="type_psychic">#f85888</color>
+    <color name="type_rock">#ab8b5f</color>
+    <color name="type_steel">#a4a4b5</color>
+    <color name="type_water">#41b1ff</color>
+    <color name="type_undefined">#67a190</color>
+
+
+
+
+
+
 </resources>

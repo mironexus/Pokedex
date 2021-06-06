@@ -84,4 +84,7 @@ dependencies {
     def paging_version = "2.1.2"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
+    //flexbox
+    implementation 'com.google.android:flexbox:1.1.0'
+
 }

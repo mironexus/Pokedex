@@ -1,22 +1,33 @@
 package com.example.pokedex.pokemon
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.example.pokedex.R
 import com.example.pokedex.databinding.ActivityPokemonBinding
+import com.google.android.flexbox.FlexboxLayout
+import org.w3c.dom.Text
 
 private lateinit var binding: ActivityPokemonBinding
 
 class PokemonActivity : AppCompatActivity() {
 
     private val singlePokemonViewModel: SinglePokemonViewModel by viewModels()
+
+    // to use for type buttons
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,6 +94,23 @@ class PokemonActivity : AppCompatActivity() {
                 binding.abilitiesRecyclerView.layoutManager = layoutManagerAbility
                 //endregion
 
+
+                val inflater =
+                    getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+                for(outerType in it.types) {
+
+                    val typeButton: TextView = inflater.inflate(R.layout.type_button, null) as TextView
+
+
+                    typeButton.background = getTypeDrawable(outerType.type.name)
+
+                    typeButton.text = outerType.type.name.capitalize()
+
+                    binding.typesContainer.addView(typeButton)
+                }
+
+
             })
 
         }
@@ -95,6 +123,40 @@ class PokemonActivity : AppCompatActivity() {
         val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
         return networkCapabilities != null &&
                 networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+
+
+    private fun getTypeDrawable(typeName: String): Drawable {
+
+        var unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.type_button_rounded)!!
+
+
+        when (typeName) {
+            "bug" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_bug))
+            "dark" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_dark))
+            "dragon" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_dragon))
+            "electric" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_electric))
+            "fairy" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_fairy))
+            "fighting" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_fighting))
+            "fire" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_fire))
+            "flying" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_flying))
+            "ghost" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_ghost))
+            "grass" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_grass))
+            "ground" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_ground))
+            "ice" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_ice))
+            "normal" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_normal))
+            "poison" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_poison))
+            "psychic" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_psychic))
+            "rock" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_rock))
+            "steel" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_steel))
+            "water" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_water))
+            "undefined" -> unwrappedDrawable.setTint(resources.getColor(R.color.type_undefined))
+        }
+
+
+        return unwrappedDrawable
+
     }
 
 }

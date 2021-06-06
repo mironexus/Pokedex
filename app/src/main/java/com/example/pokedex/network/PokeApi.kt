@@ -3,6 +3,9 @@ package com.example.pokedex.network
 import com.example.pokedex.PaginatedResponse
 import com.example.pokedex.Pokemon
 import com.example.pokedex.PokemonResponse
+import com.example.pokedex.Species
+import com.example.pokedex.pokemon.EvolutionChainResponse
+import com.example.pokedex.pokemon.SpeciesResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -27,6 +30,11 @@ interface PokeApi {
     @GET("/api/v2/pokemon/{id}")
     suspend fun getSinglePokemonWithId(@Path("id") id: Int): Response<PokemonResponse>
 
+    @GET
+    suspend fun getSpecies(@Url url: String): Response<SpeciesResponse>
+
+    @GET
+    suspend fun getEvolutionChain(@Url url: String): Response<EvolutionChainResponse>
 
     // end favorites and single item
 

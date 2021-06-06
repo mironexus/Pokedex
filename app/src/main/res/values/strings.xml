@@ -37,5 +37,6 @@
     <string name="abilities_label">Abilities</string>
     <string name="stats_label">Stats</string>
     <string name="hidden_ability">Hidden Ability</string>
+    <string name="type_button_placeholder">TYPE</string>
 
 </resources>
