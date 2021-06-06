@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="360dp"
     android:layout_height="match_parent"
-    tools:context=".pokemon.PokemonActivity"
+    tools:context=".otheractivities.pokemon.PokemonActivity"
     android:layout_gravity="center">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -305,7 +305,7 @@
 
                         />
 
-                    <com.example.pokedex.pokemon.SingleStat
+                    <com.example.pokedex.otheractivities.pokemon.SingleStat
                         android:id="@+id/stats_hp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -314,7 +314,7 @@
                         android:layout_marginTop="16dp"
                         app:label="@string/stat_hp"/>
 
-                    <com.example.pokedex.pokemon.SingleStat
+                    <com.example.pokedex.otheractivities.pokemon.SingleStat
                         android:id="@+id/stats_attack"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
                         android:layout_marginTop="16dp"
                         app:label="@string/stat_attack"/>
 
-                    <com.example.pokedex.pokemon.SingleStat
+                    <com.example.pokedex.otheractivities.pokemon.SingleStat
                         android:id="@+id/stats_defense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -332,7 +332,7 @@
                         android:layout_marginTop="16dp"
                         app:label="@string/stat_defense"/>
 
-                    <com.example.pokedex.pokemon.SingleStat
+                    <com.example.pokedex.otheractivities.pokemon.SingleStat
                         android:id="@+id/stats_special_attack"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -341,7 +341,7 @@
                         android:layout_marginTop="16dp"
                         app:label="@string/stat_sp_atk"/>
 
-                    <com.example.pokedex.pokemon.SingleStat
+                    <com.example.pokedex.otheractivities.pokemon.SingleStat
                         android:id="@+id/stats_special_defense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -350,7 +350,7 @@
                         android:layout_marginTop="16dp"
                         app:label="@string/stat_sp_def"/>
 
-                    <com.example.pokedex.pokemon.SingleStat
+                    <com.example.pokedex.otheractivities.pokemon.SingleStat
                         android:id="@+id/stats_speed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -23,6 +23,8 @@
         <!--        <item name="colorOnSurface">@color/surface0</item>-->
         <!--        <item name="scrimBackground">@color/surface0</item>-->
 
+        <item name="fontFamily">@font/roboto_regular</item>
+
 
     </style>
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.favorites.FavoritePokemonsFragment">
+    tools:context=".mainactivityfragments.favorites.FavoritePokemonsFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -60,10 +60,12 @@
             >
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="64dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="60dp"
                 android:id="@+id/favorites_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:clipToPadding="false"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -5,9 +5,9 @@ import android.os.Bundle
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.pokedex.databinding.ActivityMainBinding
-import com.example.pokedex.fragments.favorites.FavoritePokemonsFragment
-import com.example.pokedex.fragments.search.PokemonSearchFragment
-import com.example.pokedex.fragments.settings.SettingsFragment
+import com.example.pokedex.mainactivityfragments.favorites.FavoritePokemonsFragment
+import com.example.pokedex.mainactivityfragments.search.PokemonSearchFragment
+import com.example.pokedex.mainactivityfragments.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 

@@ -2,20 +2,14 @@ package com.example.pokedex.repository
 
 import android.app.Application
 import android.util.Log
-import com.example.pokedex.PaginatedResponse
+import com.example.pokedex.mainactivityfragments.search.PaginatedResponse
 import com.example.pokedex.PokemonResponse
-import com.example.pokedex.ShortPokemonObject
 import com.example.pokedex.Species
 import com.example.pokedex.database.AppDatabase
 import com.example.pokedex.database.Favorite
 import com.example.pokedex.database.FavoriteDAO
 import com.example.pokedex.network.RetrofitInstance
-import com.example.pokedex.pokemon.EvolutionChainResponse
-import com.example.pokedex.pokemon.SpeciesResponse
-import com.example.pokedex.type.*
-import kotlinx.coroutines.*
-import retrofit2.Response
-import retrofit2.http.Query
+import com.example.pokedex.otheractivities.type.*
 
 class RepositoryImpl(application: Application) {
 
@@ -33,7 +27,12 @@ class RepositoryImpl(application: Application) {
 
         val paginatedResponse = RetrofitInstance.api.getPaginatedResponse(limit, offset)
 
-        var paginatedResponseBody = PaginatedResponse("", "", listOf())
+        var paginatedResponseBody =
+            PaginatedResponse(
+                "",
+                "",
+                listOf()
+            )
 
         if (paginatedResponse.isSuccessful) paginatedResponseBody = paginatedResponse.body()!! else Log.e("RETROFIT_ERROR", paginatedResponse.code().toString())
 
@@ -45,7 +44,12 @@ class RepositoryImpl(application: Application) {
 
         val paginatedResponse = RetrofitInstance.api.getHardcodedOffsetAndLimit(url)
 
-        var paginatedResponseBody = PaginatedResponse("", "", listOf())
+        var paginatedResponseBody =
+            PaginatedResponse(
+                "",
+                "",
+                listOf()
+            )
 
         if (paginatedResponse.isSuccessful) paginatedResponseBody = paginatedResponse.body()!! else Log.e("RETROFIT_ERROR", paginatedResponse.code().toString())
 
@@ -123,9 +127,23 @@ class RepositoryImpl(application: Application) {
 
         val singleTypeResponseFromNetwork = RetrofitInstance.api.getType(url)
 
-        var emptyDamageRelations = DamageRelations(listOf(), listOf(), listOf(), listOf(), listOf(), listOf())
+        var emptyDamageRelations =
+            DamageRelations(
+                listOf(),
+                listOf(),
+                listOf(),
+                listOf(),
+                listOf(),
+                listOf()
+            )
 
-        var singleTypeResponse = TypeResponse("", emptyDamageRelations, listOf(), listOf())
+        var singleTypeResponse =
+            TypeResponse(
+                "",
+                emptyDamageRelations,
+                listOf(),
+                listOf()
+            )
 
         if (singleTypeResponseFromNetwork.isSuccessful) singleTypeResponse = singleTypeResponseFromNetwork.body()!! else Log.e("RETROFIT_ERROR", singleTypeResponseFromNetwork.code().toString())
 
@@ -137,7 +155,20 @@ class RepositoryImpl(application: Application) {
 
         val singleMoveResponseFromNetwork = RetrofitInstance.api.getSingleMove(url)
 
-        var singleMoveResponse = MoveResponse(Generation("",""), "", DamageClass("",""), 0, 0)
+        var singleMoveResponse =
+            MoveResponse(
+                Generation(
+                    "",
+                    ""
+                ),
+                "",
+                DamageClass(
+                    "",
+                    ""
+                ),
+                0,
+                0
+            )
 
         if (singleMoveResponseFromNetwork.isSuccessful) singleMoveResponse = singleMoveResponseFromNetwork.body()!! else Log.e("RETROFIT_ERROR", singleMoveResponseFromNetwork.code().toString())
 

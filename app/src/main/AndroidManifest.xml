@@ -13,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".type.PokemonTypeActivity"
+            android:name=".otheractivities.type.PokemonTypeActivity"
             android:label="@string/title_activity_pokemon_type"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".pokemon.PokemonActivity" />
+        <activity android:name="com.example.pokedex.otheractivities.pokemon.PokemonActivity" />
         <activity
-            android:name=".fragments.settings.AboutActivity"
+            android:name=".mainactivityfragments.settings.AboutActivity"
             android:label="@string/title_activity_about" />
         <activity android:name=".MainActivity">
             <intent-filter>

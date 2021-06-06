@@ -1,13 +1,11 @@
 package com.example.pokedex.network
 
-import com.example.pokedex.PaginatedResponse
-import com.example.pokedex.Pokemon
+import com.example.pokedex.mainactivityfragments.search.PaginatedResponse
 import com.example.pokedex.PokemonResponse
-import com.example.pokedex.Species
-import com.example.pokedex.pokemon.EvolutionChainResponse
-import com.example.pokedex.pokemon.SpeciesResponse
-import com.example.pokedex.type.MoveResponse
-import com.example.pokedex.type.TypeResponse
+import com.example.pokedex.otheractivities.pokemon.EvolutionChainResponse
+import com.example.pokedex.otheractivities.pokemon.SpeciesResponse
+import com.example.pokedex.otheractivities.type.MoveResponse
+import com.example.pokedex.otheractivities.type.TypeResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
