@@ -16,22 +16,23 @@
 
         <item name="android:textColor">@color/dark</item>
 
-<!--        <item name="colorOnPrimary">@color/surface0</item>-->
-<!--        <item name="colorOnSecondary">@color/surface0</item>-->
-<!--        <item name="colorOnBackground">@color/surface0</item>-->
-<!--        <item name="colorOnError">@color/surface0</item>-->
-<!--        <item name="colorOnSurface">@color/surface0</item>-->
-<!--        <item name="scrimBackground">@color/surface0</item>-->
-
-
+        <!--        <item name="colorOnPrimary">@color/surface0</item>-->
+        <!--        <item name="colorOnSecondary">@color/surface0</item>-->
+        <!--        <item name="colorOnBackground">@color/surface0</item>-->
+        <!--        <item name="colorOnError">@color/surface0</item>-->
+        <!--        <item name="colorOnSurface">@color/surface0</item>-->
+        <!--        <item name="scrimBackground">@color/surface0</item>-->
 
 
     </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

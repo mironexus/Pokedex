@@ -1,6 +1,7 @@
 package com.example.pokedex.pokemon
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import com.example.pokedex.R
 import com.example.pokedex.databinding.ActivityPokemonBinding
+import com.example.pokedex.type.PokemonTypeActivity
 import com.google.android.flexbox.FlexboxLayout
 import org.w3c.dom.Text
 
@@ -26,7 +28,6 @@ class PokemonActivity : AppCompatActivity() {
 
     private val singlePokemonViewModel: SinglePokemonViewModel by viewModels()
 
-    // to use for type buttons
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +50,7 @@ class PokemonActivity : AppCompatActivity() {
             singlePokemonViewModel.pokemon.observe(this, Observer {
 
                 //region Stats
-                binding.collapsingToolbar.title = it.name
+                binding.collapsingToolbar.title = it.name.capitalize()
                 binding.pokedexNum.text = it.order.toString()
                 binding.height.text = it.height.toString()
                 binding.weight.text = it.weight.toString()
@@ -102,10 +103,15 @@ class PokemonActivity : AppCompatActivity() {
 
                     val typeButton: TextView = inflater.inflate(R.layout.type_button, null) as TextView
 
-
                     typeButton.background = getTypeDrawable(outerType.type.name)
 
                     typeButton.text = outerType.type.name.capitalize()
+
+                    typeButton.setOnClickListener {
+                        val intent = Intent(it.context, PokemonTypeActivity::class.java)
+                        intent.putExtra("url", outerType.type.url)
+                        it.context.startActivity(intent)
+                    }
 
                     binding.typesContainer.addView(typeButton)
                 }

@@ -12,6 +12,7 @@ import com.example.pokedex.database.FavoriteDAO
 import com.example.pokedex.network.RetrofitInstance
 import com.example.pokedex.pokemon.EvolutionChainResponse
 import com.example.pokedex.pokemon.SpeciesResponse
+import com.example.pokedex.type.*
 import kotlinx.coroutines.*
 import retrofit2.Response
 import retrofit2.http.Query
@@ -117,6 +118,32 @@ class RepositoryImpl(application: Application) {
 //
 //
 //    }
+
+    suspend fun getType(url: String): TypeResponse {
+
+        val singleTypeResponseFromNetwork = RetrofitInstance.api.getType(url)
+
+        var emptyDamageRelations = DamageRelations(listOf(), listOf(), listOf(), listOf(), listOf(), listOf())
+
+        var singleTypeResponse = TypeResponse("", emptyDamageRelations, listOf(), listOf())
+
+        if (singleTypeResponseFromNetwork.isSuccessful) singleTypeResponse = singleTypeResponseFromNetwork.body()!! else Log.e("RETROFIT_ERROR", singleTypeResponseFromNetwork.code().toString())
+
+        return singleTypeResponse
+
+    }
+
+    suspend fun getSingleMoveFromNetwork(url: String): MoveResponse {
+
+        val singleMoveResponseFromNetwork = RetrofitInstance.api.getSingleMove(url)
+
+        var singleMoveResponse = MoveResponse(Generation("",""), "", DamageClass("",""), 0, 0)
+
+        if (singleMoveResponseFromNetwork.isSuccessful) singleMoveResponse = singleMoveResponseFromNetwork.body()!! else Log.e("RETROFIT_ERROR", singleMoveResponseFromNetwork.code().toString())
+
+        return singleMoveResponse
+
+    }
 
 
     //region Database

@@ -39,4 +39,27 @@
     <string name="hidden_ability">Hidden Ability</string>
     <string name="type_button_placeholder">TYPE</string>
 
+    <string name="title_activity_pokemon_type">PokemonTypeActivity</string>
+    <string name="tab_text_1">DAMAGE OVERVIEW</string>
+    <string name="tab_text_2">MOVES</string>
+    <string name="tab_text_3">POKEMONS</string>
+    <string name="gen_value_placeholder">I</string>
+    <string name="move_value_placeholder">BLOOM DOOM</string>
+    <string name="category_value_placeholder">Physical</string>
+    <string name="power_value_placeholder">40</string>
+    <string name="pp_value_placeholder">25</string>
+    <string name="offensive_label">Offensive</string>
+    <string name="power_label">POWER</string>
+    <string name="types_label">TYPES</string>
+    <string name="double_damage">2x</string>
+    <string name="half_damage">1/2x</string>
+    <string name="no_damage">0x</string>
+    <string name="defensive_label">Defensive</string>
+    <string name="pokedex_num_placeholder">010</string>
+    <string name="evolution_label">Evolution</string>
+    <string name="gen_label">GEN</string>
+    <string name="move_label">MOVE</string>
+    <string name="category_label">CATEGORY</string>
+    <string name="pp_label">PP</string>
+
 </resources>

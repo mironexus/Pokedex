@@ -103,7 +103,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@id/pokedex_num_label"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:text="010"/>
+                        android:text="@string/pokedex_num_placeholder"/>
 
                     <TextView
                         android:id="@+id/type_label"
@@ -123,72 +123,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:flexDirection="row"
                         app:flexWrap="wrap">
-                    
-<!--                    <TextView-->
-<!--                        android:id="@+id/first_type"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="32dp"-->
-<!--                        android:text="TYPE"-->
-<!--                        android:textColor="@color/surface1"-->
-<!--                        android:paddingHorizontal="16dp"-->
-<!--                        android:paddingVertical="6dp"-->
-<!--                        android:background="@drawable/type_button_rounded"-->
-<!--                        />-->
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/second_type"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="32dp"-->
-<!--                        android:text="TYPE"-->
-<!--                        android:textColor="@color/surface1"-->
-<!--                        android:paddingHorizontal="16dp"-->
-<!--                        android:paddingVertical="6dp"-->
-<!--                        android:background="@drawable/type_button_rounded"-->
-<!--                        />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/third_type"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="32dp"-->
-<!--                            android:text="TYPE"-->
-<!--                            android:textColor="@color/surface1"-->
-<!--                            android:paddingHorizontal="16dp"-->
-<!--                            android:paddingVertical="6dp"-->
-<!--                            android:background="@drawable/type_button_rounded"-->
-<!--                            />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/four_type"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="32dp"-->
-<!--                            android:text="TYPE"-->
-<!--                            android:textColor="@color/surface1"-->
-<!--                            android:paddingHorizontal="16dp"-->
-<!--                            android:paddingVertical="6dp"-->
-<!--                            android:background="@drawable/type_button_rounded"-->
-<!--                            />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/five_type"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="32dp"-->
-<!--                            android:text="TYPE"-->
-<!--                            android:textColor="@color/surface1"-->
-<!--                            android:paddingHorizontal="16dp"-->
-<!--                            android:paddingVertical="6dp"-->
-<!--                            android:background="@drawable/type_button_rounded"-->
-<!--                            />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/six_type"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="32dp"-->
-<!--                            android:text="TYPE"-->
-<!--                            android:textColor="@color/surface1"-->
-<!--                            android:paddingHorizontal="16dp"-->
-<!--                            android:paddingVertical="6dp"-->
-<!--                            android:background="@drawable/type_button_rounded"-->
-<!--                            />-->
 
                     </com.google.android.flexbox.FlexboxLayout>
 
@@ -255,7 +190,7 @@
                             app:layout_constraintTop_toBottomOf="@id/height_label"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            android:text="010"/>
+                            android:text="@string/pokedex_num_placeholder"/>
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -296,7 +231,7 @@
                             app:layout_constraintTop_toBottomOf="@id/weight_label"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            android:text="010"/>
+                            android:text="@string/pokedex_num_placeholder"/>
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -443,7 +378,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/stats_speed"
                         app:layout_constraintStart_toEndOf="@+id/stats_total_label"
                         android:layout_marginTop="4dp"
-                        android:text="010"
+                        android:text="@string/pokedex_num_placeholder"
                         android:textSize="14sp"
                         android:textColor="@color/coldGray"/>
 
@@ -467,7 +402,7 @@
                         android:id="@+id/evolution_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Evolution"
+                        android:text="@string/evolution_label"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:textColor="@color/coldGray"

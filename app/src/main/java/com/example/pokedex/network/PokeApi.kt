@@ -6,6 +6,8 @@ import com.example.pokedex.PokemonResponse
 import com.example.pokedex.Species
 import com.example.pokedex.pokemon.EvolutionChainResponse
 import com.example.pokedex.pokemon.SpeciesResponse
+import com.example.pokedex.type.MoveResponse
+import com.example.pokedex.type.TypeResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -37,5 +39,11 @@ interface PokeApi {
     suspend fun getEvolutionChain(@Url url: String): Response<EvolutionChainResponse>
 
     // end favorites and single item
+
+    @GET
+    suspend fun getType(@Url url: String): Response<TypeResponse>
+
+    @GET
+    suspend fun getSingleMove(@Url url: String): Response<MoveResponse>
 
 }

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".type.ui.main.PokemonTypeDamageOverviewFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/offensive_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:text="@string/offensive_label"
+            />
+
+        <TextView
+            android:id="@+id/offensive_power_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/offensive_label"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:text="@string/power_label" />
+        <TextView
+            android:id="@+id/offensive_types_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/offensive_label"
+            app:layout_constraintStart_toEndOf="@+id/offensive_power_label"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/types_label" />
+
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/offensive_double_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/offensive_types_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:flexDirection="row"
+            app:flexWrap="wrap">
+
+            <TextView
+                android:id="@+id/offensive_double_multiplier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:text="@string/double_damage"
+                android:textColor="@color/success"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/offensive_half_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/offensive_double_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:flexDirection="row"
+            app:flexWrap="wrap">
+
+            <TextView
+                android:id="@+id/offensive_half_multiplier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:text="@string/half_damage"
+                android:textColor="@color/error"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/offensive_none_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/offensive_half_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:flexDirection="row"
+            app:flexWrap="wrap">
+
+            <TextView
+                android:id="@+id/offensive_none_multiplier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:text="@string/no_damage"
+                android:textColor="@color/coldGray"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+
+
+        <TextView
+            android:id="@+id/defensive_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/offensive_none_container"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:text="@string/defensive_label"
+            />
+
+        <TextView
+            android:id="@+id/defensive_power_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/defensive_label"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:text="@string/power_label" />
+        <TextView
+            android:id="@+id/defensive_types_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/defensive_label"
+            app:layout_constraintStart_toEndOf="@+id/defensive_power_label"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/types_label" />
+
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/defensive_double_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/defensive_types_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:flexDirection="row"
+            app:flexWrap="wrap">
+
+            <TextView
+                android:id="@+id/defensive_double_multiplier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:text="@string/double_damage"
+                android:textColor="@color/success"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/defensive_half_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/defensive_double_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:flexDirection="row"
+            app:flexWrap="wrap">
+
+            <TextView
+                android:id="@+id/defensive_half_multiplier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:text="@string/half_damage"
+                android:textColor="@color/error"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/defensive_none_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/defensive_half_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:flexDirection="row"
+            app:flexWrap="wrap">
+
+            <TextView
+                android:id="@+id/defensive_none_multiplier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:text="@string/no_damage"
+                android:textColor="@color/coldGray"/>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
